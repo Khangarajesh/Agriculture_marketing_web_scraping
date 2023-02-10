@@ -35,8 +35,8 @@ market_wise_wholsale_price_weekly_analysis.click()
 months = ['November', 'December'] #list of months
 weeks = ['First', 'Second', 'Third', 'Fourth'] #list of week
 
-for m in months:
-    for w in weeks:
+for m in months: #Iterate over month
+    for w in weeks: #Iterate over week
 
         # Select "Commodity"
         try:
@@ -56,7 +56,6 @@ for m in months:
             time.sleep(10)
         except:
             print("Enter Valid State")
-
 
         #Select "District"
         try:
@@ -78,16 +77,15 @@ for m in months:
         except:
             print("Year not found")
 
-
-
         #Select "Month"
-
-        month_dropdown = driver.find_element(by = By.XPATH, value = '//td[.= "Month"]/parent::tr//select')
-        month = Select(month_dropdown)
-        time.sleep(3)
-        month.select_by_visible_text(m) #month
-        time.sleep(10)
-
+        try:
+            month_dropdown = driver.find_element(by = By.XPATH, value = '//td[.= "Month"]/parent::tr//select')
+            month = Select(month_dropdown)
+            time.sleep(3)
+            month.select_by_visible_text(m) #month
+            time.sleep(10)
+        except:
+            print('Month not found')
 
         #Select "Week"
         try:
@@ -101,7 +99,6 @@ for m in months:
             driver.get('https://agmarknet.gov.in/PriceTrends/SA_Week_PriM.aspx')#If week number is not in a list then go back and take a next week number
             time.sleep(2)
             continue
-
 
         #Click on "Submitt"
         submitt = driver.find_element(by = By.XPATH, value = '//*[@id="cphBody_But_Submit"]')
