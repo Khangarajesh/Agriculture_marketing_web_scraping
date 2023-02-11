@@ -1,10 +1,18 @@
-1)While selecting commodity, state, district etc  I was getting the error message selenium.common.exceptions.staleelementreferenceexception: message: stale element reference: element is not attached to the page document
-2)sometimes it was able to select sometimes not
-3)This was hapenning because of its xpath is dynamic due to which i was getting this error
-4)so i write the xpath based on label name then find common parrent for both then write xpath for element
-5)ex: xpath for label state: //td[.= , common parrent : "State"]/parent:: , xpath for element : tr//select'
-6)It is very import to waite for page load befor we move to next dropbox so I have write time.sleeep(10)
-7)Note that this was applicable only for select kind of dropbox sum dropbox uses div in their html so for them code will change
+1)"While selecting a commodity, state, district, etc.,
+  I was encountering the error message: selenium.common.exceptions.StaleElementReferenceException: Message: Stale element reference: element is not attached to the page document.
+
+2)Sometimes, the selection was successful, but sometimes it was not.
+
+3)This was happening because the xpath was dynamic, which caused this error.
+
+4)To resolve this, I wrote the xpath based on the label name, found the common parent for both, and then wrote the xpath for the element.
+
+5)For example, the xpath for the label 'state': //td[.= , common parent: "State"]/parent::, and the xpath for the element: tr//select.
+
+6)It is very important to wait for the page to load before moving on to the next dropbox,
+  so I have written time.sleep(10).
+
+7)Note that this solution was applicable only for the select type of dropbox. Some dropboxes use div in their HTML, so the code will change for them."
 
 Important Resource :
 https://www.youtube.com/watch?v=u1L7wBbMmVU&t=524s #How to handle dropdown using selenium
